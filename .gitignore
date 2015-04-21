@@ -25,3 +25,6 @@ chromedriver.log
 bin/
 .env
 *.swp
+
+
+auth_token = 'e2e65eb3f7f08688133d20014994d71c'

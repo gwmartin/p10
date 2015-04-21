@@ -15,6 +15,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'twilio-ruby'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
