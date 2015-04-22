@@ -19,7 +19,7 @@
   box-shadow: 1px;
 }
 
-.input-wrapper > input {
+input {
   margin-bottom: 5px;
   border-radius: 5px;
 }

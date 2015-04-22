@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.0.0'
 
 # PostgreSQL driver
 gem 'pg'
@@ -17,6 +17,7 @@ gem 'shotgun'
 
 gem 'chronic'
 
+
 gem 'twilio-ruby'
 
 group :test do
@@ -27,6 +28,8 @@ group :test do
 end
 
 group :test, :development do
+  gem 'dotenv'
+  gem 'debugger'
   gem 'factory_girl'
   gem 'faker'
 end

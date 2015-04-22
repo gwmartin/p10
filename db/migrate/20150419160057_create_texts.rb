@@ -5,7 +5,7 @@ class CreateTexts < ActiveRecord::Migration
       t.text     :number
       t.text     :recipient
       t.text     :message
-      t.text     :date_time
+      t.time     :date_time
 
     end
   end
