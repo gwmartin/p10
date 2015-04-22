@@ -15,6 +15,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'chronic'
+
 gem 'twilio-ruby'
 
 group :test do
