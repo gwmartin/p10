@@ -9,10 +9,12 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 if development? || test?
+  require 'pry-debugger'
   require 'dotenv'
   Dotenv.load
 end
 
+require 'twilio-ruby'
 require 'resque'
 require 'chronic'
 require 'uri'

@@ -17,6 +17,7 @@ gem 'shotgun'
 
 gem 'chronic'
 gem 'resque'
+gem 'resque-scheduler'
 gem 'twilio-ruby'
 
 
@@ -32,4 +33,5 @@ group :test, :development do
   gem 'debugger'
   gem 'factory_girl'
   gem 'faker'
+  gem 'pry-debugger'
 end

@@ -1,4 +1,5 @@
 get '/' do
+  @text = Text.new
   erb :index
 end
 
@@ -9,20 +10,19 @@ end
 
 post '/texts' do
 
-  date_time = params[:date] + " " + params[:time]
-  time_stamp = Chronic.parse(date_time)
-
-
-  @text = Text.create(
+  @text = Text.new(
     recipient: params[:recipient],
     number: params[:number],
     message: params[:message],
-    date_time: time_stamp,
+    expected_sent_at: params[:expected_sent_at],
   )
-
-  Resque.enqueue(SendTextMessageWorker, @text.id)
-
-  redirect "/"
+  if @text.save
+    Resque.enqueue(SendTextMessageWorker, @text.id)
+    redirect "/"
+  else
+    raise @text.errors.full_messages.inspect
+    erb :index
+  end
 end
 
 get '/texts/:id' do
