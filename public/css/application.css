@@ -4,16 +4,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1000px;
+  height: 950px;
 
 }
 
 .form-wrapper {
   display: flex;
   justify-content: center;
+  padding: 2em;
   align-items: center;
   width: 30%;
-  height: 200px;
+  height: 300px;
   background-color: gray;
   border-radius: 5px;
   box-shadow: 1px;
