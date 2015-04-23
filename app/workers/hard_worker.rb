@@ -1,9 +1,11 @@
+# Resque.enqueue(HardWorker, 'example', 'arguments')
 class HardWorker
-  include Sidekiq::Worker
+  @queue = :default
 
-  def perform(name, count)
-    p 'Doing hard work'
-    p 'Doing hard work'
-    p 'Doing hard work'
+  def self.perform(params)
+    puts '~' * 100
+    puts "HardWorker is working on #{params.inspect}"
+    puts '~' * 100
   end
+
 end

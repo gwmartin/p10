@@ -16,7 +16,7 @@ gem 'rake'
 gem 'shotgun'
 
 gem 'chronic'
-gem 'sidekiq'
+gem 'resque'
 gem 'twilio-ruby'
 
 

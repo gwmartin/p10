@@ -1,6 +1,10 @@
 get '/' do
-  HardWorker.perform_async('bob', 5)
   erb :index
+end
+
+get '/worker_test' do
+  Resque.enqueue(HardWorker, params)
+  "There are #{Resque.size(:default)} jobs in the default queue"
 end
 
 post '/texts' do

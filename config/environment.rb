@@ -10,7 +10,7 @@ require 'rubygems'
 
 require 'dotenv'
 Dotenv.load
-require 'sidekiq'
+require 'resque'
 
 require 'chronic'
 require 'uri'
