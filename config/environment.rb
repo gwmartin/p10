@@ -25,6 +25,11 @@ require 'active_record'
 require 'logger'
 require 'erb'
 
+require 'active_support/time_with_zone'
+require 'active_support/core_ext/time/zones'
+Time.zone = "Pacific Time (US & Canada)"
+Chronic.time_class = Time.zone
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
