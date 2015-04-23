@@ -38,6 +38,12 @@ configure do
 
   # Set the views to
   set :views, File.join(Sinatra::Application.root, "app", "views")
+  # Configure Redis (hopefully)
+  # services = JSON.parse(ENV['VCAP_SERVICES'])
+  # redis_key = services.keys.select { |svc| svc =~ /redis/i }.first
+  # redis = services[redis_key].first['credentials']
+  # redis_conf = { :host => redis['hostname'], :port => redis['port']. :password => redis['password'] }
+  # @@redis = Redis.new redis_conf
 end
 
 # Set up the controllers and helpers

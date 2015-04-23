@@ -16,9 +16,9 @@ gem 'rake'
 gem 'shotgun'
 
 gem 'chronic'
-
-
+gem 'resque-scheduler'
 gem 'twilio-ruby'
+
 
 group :test do
   gem 'shoulda-matchers'
