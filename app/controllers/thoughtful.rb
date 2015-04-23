@@ -1,7 +1,5 @@
-require 'chronic'
-require 'resque'
-
 get '/' do
+  HardWorker.perform_async('bob', 5)
   erb :index
 end
 
@@ -17,7 +15,11 @@ post '/texts' do
               message: params[:message],
               date_time: time_stamp
            )
-  send_message(@text)
+
+  puts "BEFORE HARDWORKER"
+  HardWorker.perform_async('bob', 5)
+  puts "AFTER HARDWORKER"
+  # send_message(@text)
   redirect "/"
 end
 
