@@ -11,8 +11,13 @@ html {
   justify-content: center;
   align-items: center;
   height: 950px;
-
 }
+
+/*.logo {
+  font-family: 'Playfair Display';
+  font-weight: 600px;
+  color: white;
+}*/
 
 .form-wrapper {
   display: flex;
