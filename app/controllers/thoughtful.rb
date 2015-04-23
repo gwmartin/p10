@@ -14,16 +14,14 @@ post '/texts' do
 
 
   @text = Text.create(
-              recipient: params[:recipient],
-              number: params[:number],
-              message: params[:message],
-              date_time: time_stamp
-           )
+    recipient: params[:recipient],
+    number: params[:number],
+    message: params[:message],
+    date_time: time_stamp,
+  )
 
-  puts "BEFORE HARDWORKER"
-  HardWorker.perform_async('bob', 5)
-  puts "AFTER HARDWORKER"
-  # send_message(@text)
+  Resque.enqueue(SendTextMessageWorker, @text.id)
+
   redirect "/"
 end
 
