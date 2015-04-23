@@ -17,7 +17,6 @@ post '/texts' do
     expected_sent_at: params[:expected_sent_at],
   )
   if @text.save
-    Resque.enqueue(SendTextMessageWorker, @text.id)
     redirect "/"
   else
     raise @text.errors.full_messages.inspect

@@ -9,6 +9,10 @@ class Text < ActiveRecord::Base
   validates :message,          presence: true
   validates :expected_sent_at, presence: true
 
+  scope :needs_to_be_sent, ->{
+    where('texts.expected_sent_at <= now() AND texts.sent_at IS NULL')
+  }
+
   def expected_sent_at=(time)
     time = Chronic.parse(time) if time.is_a?(String)
     super time
@@ -21,6 +25,7 @@ class Text < ActiveRecord::Base
       to: self.number,
       body: self.message,
     })
+    self.update_attribute(:sent_at, Time.now)
   end
 
 end

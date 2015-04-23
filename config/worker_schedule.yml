@@ -1,0 +1,2 @@
+ScheduleMessagesThatNeedToBeSentWorker:
+  cron: "* * * * *"

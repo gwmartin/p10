@@ -16,6 +16,7 @@ end
 
 require 'twilio-ruby'
 require 'resque'
+require 'resque-scheduler'
 require 'chronic'
 require 'uri'
 require 'pathname'
@@ -55,3 +56,6 @@ Dir[APP_ROOT.join('app', 'workers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+
+Resque.schedule = YAML.load_file Bundler.root.join('config/worker_schedule.yml')
